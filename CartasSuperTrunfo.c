@@ -13,6 +13,9 @@ char estado1;
     float area1;
     float pib1;
     int numPontosTuristicos1;
+    float densidadePopulacional1;
+    float densidadePib1;
+    float superPoder1;
 
     char estado2;
     char codigoCarta2[10];
@@ -21,7 +24,9 @@ char estado1;
     float area2;
     float pib2;
     int numPontosTuristicos2;
-    
+    float densidadePopulacional2;
+    float densidadePib2;
+    float superPoder2;
   // Área para entrada de dados
 
    printf("=== Criando as Cartas do Super Trunfo ===\n\n");
@@ -49,6 +54,12 @@ char estado1;
     printf("Digite o número de pontos turísticos: \n");
     scanf("%d", &numPontosTuristicos1);
 
+    densidadePopulacional1 = populacao1 / area1;
+    densidadePib1 = pib1 / populacao1;
+    superPoder1 = populacao1 + area1 + pib1 + numPontosTuristicos1 + 1/densidadePopulacional1 + densidadePib1;
+
+
+
     printf("=== Carta 2 ===\n");
 
     printf("Digite uma letra de 'A' a 'H' para o estado 2: \n");
@@ -72,6 +83,10 @@ char estado1;
     printf("Digite o número de pontos turísticos: \n");
     scanf("%d", &numPontosTuristicos2);
 
+    densidadePopulacional2 = populacao2 / area2;
+    densidadePib2 = pib2 / populacao2;
+    superPoder2 = populacao2 + area2 + pib2 + numPontosTuristicos2 + 1/densidadePopulacional2 + densidadePib2;
+
   // Área para exibição dos dados da cidade
 
    printf("Carta 1:\n");
@@ -82,6 +97,10 @@ char estado1;
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f\n", pib1);
     printf("Número de Pontos Turísticos: %d\n\n", numPontosTuristicos1);
+    printf("Densidade Populacional: %.2f habitantes/km²\n", densidadePopulacional1);
+    printf("Densidade do PIB: %.2f bilhões/km²\n", densidadePib1);
+    printf("Super Poder: %.2f\n\n", superPoder1);
+
     
     printf("Carta 2:\n");
     printf("Estado: %c\n", estado2);
@@ -91,7 +110,13 @@ char estado1;
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", numPontosTuristicos2);
+    printf("Densidade Populacional: %.2f habitantes/km²\n", densidadePopulacional2);
+    printf("Densidade do PIB: %.2f bilhões/km²\n", densidadePib2);
+    printf("Super Poder: %.2f\n\n", superPoder2);
 
+    int resultadoComparacao = 0;
+    resultadoComparacao = superPoder1 > superPoder2;
+    printf("Comparação entre as cartas: %d\n", resultadoComparacao);
 
 
 return 0;
